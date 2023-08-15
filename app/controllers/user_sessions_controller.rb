@@ -15,6 +15,6 @@ class UserSessionsController < ApplicationController
 
   def destroy
     logout
-    redirect_to root_path, notice: t('user_sessions.create.success')
+    redirect_to root_path, status: :see_other, notice: t('user_sessions.destroy.success')
   end
 end
