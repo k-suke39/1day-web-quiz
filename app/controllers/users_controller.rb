@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   end
 
   def create
-    binding.pry
     @user = User.new(user_params)
 
     if @user.save
-      redirect_to root_path   
+      redirect_to root_path, notice: t('users.create.success')   
     else
-      render :new
+      flash.now[:warning] = t('user_sessions.create.failure')
+      render :new,  status: :unprocessable_entity
     end
   end
 
