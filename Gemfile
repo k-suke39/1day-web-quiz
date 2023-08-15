@@ -81,3 +81,6 @@ end
 
 # for lint
   gem "erb_lint"
+
+# for translate
+  gem "rails-i18n"
