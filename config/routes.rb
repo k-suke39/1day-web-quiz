@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'answers/index'
+  get 'answers/show'
+  get 'answers/new'
+  get 'answers/create'
   root "staticpages#top"
 
   resources :users, only: [:new, :create]
