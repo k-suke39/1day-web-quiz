@@ -1,0 +1,14 @@
+<div class="navbar bg-base-100">
+  <div class="navbar-start">
+    <a class="btn btn-ghost normal-case text-xl">1day Web Quiz</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+  </div>
+  <div class="navbar-end">
+    <% if logged_in? %>
+      <%= link_to 'Sign up', new_user_path, class: "btn" %>
+    <% else %>
+      <%= link_to 'Log out', new_user_path, data: { turbo_method: :delete}, class: "btn" %>
+    <% end %>
+  </div>
+</div>
