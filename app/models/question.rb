@@ -1,7 +1,7 @@
 class Question < ApplicationRecord
-    def display_question
-        user_id = current_user.id # ログインユーザーのIDを取得
-        last_answer = Answer.where(user_id: user_id).order(created_at: :desc).first # 最後に解答した問題を取得
+    def self.display_question(id)
+        # ログインユーザーのIDを取得
+        last_answer = Answer.where(user_id: id).order(created_at: :desc).first # 最後に解答した問題を取得
       
         if last_answer
           # 最後に解答した問題の次の問題を取得
