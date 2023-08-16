@@ -1,4 +1,17 @@
-<div>
-  <h1 class="font-bold text-4xl">Answers#show</h1>
-  <p>Find me in app/views/answers/show.html.erb</p>
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="text-center lg:text-left mr-10">
+      <h1 class="text-5xl font-bold ml-5"><%= @answer.question.title%></h1>
+      <h1 class="text-2xl font-bold mt-2 ml-5">とは何？</h1>
+    </div>
+    <div class="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
+        <div class="card-body">
+          <div class="form-control">
+            <%= @answer.user.name %>
+          </div>
+            <%= @answer.content %>
+        </div>
+    </div>
+    </div>
+  </div>
 </div>

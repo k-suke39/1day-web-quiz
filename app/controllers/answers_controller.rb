@@ -4,7 +4,7 @@ class AnswersController < ApplicationController
   end
 
   def show
-    @answer = Answer.where(id: params[:id])
+    @answer = Answer.find_by(id: params[:id])
   end
 
   def new
