@@ -18,13 +18,5 @@ class Question < ApplicationRecord
     def self.answered_question(user_id)
       Question.joins(:answers).where(answers: { user_id: user_id })
     end
-  
-    def next_question_time
-      last_answer = answers.order(created_at: :desc).first
-      if last_answer && last_answer.created_at > 24.hours.ago
-        last_answer.created_at + 24.hours
-      else
-        Time.current
-      end
-    end
+
 end
