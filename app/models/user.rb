@@ -25,7 +25,7 @@ class User < ApplicationRecord
   def passed_24_hours?
     #回答したかつ、24時間継続している場合
     last_answer = self.answers.order(created_at: :desc).first
-    if last_answer && last_answer.created_at < 1.minute.ago
+    if last_answer && last_answer.created_at < 24.hours.ago
       return true
     end
     #初期登録時
