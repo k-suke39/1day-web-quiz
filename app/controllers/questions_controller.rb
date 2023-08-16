@@ -1,4 +1,5 @@
 class QuestionsController < ApplicationController
+  before_action :require_login
   before_action :is_answered?, only: [:show]
   def index
     @questions = Question.answered_question(current_user.id)
