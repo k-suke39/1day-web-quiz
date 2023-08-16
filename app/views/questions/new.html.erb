@@ -1,3 +1,4 @@
+<% if @passed_24_hours %>
 <div class="hero min-h-screen bg-base-200">
   <div class="hero-content flex-col lg:flex-row-reverse">
     <div class="text-center lg:text-left mr-10">
@@ -18,3 +19,17 @@
     </div>
   </div>
 </div>
+<% else %>
+<div class="hero min-h-screen bg-base-200">
+  <div class="hero-content flex-col lg:flex-row-reverse">
+    <div class="text-center lg:text-left mr-10">
+      <% if @last_answer%>
+        <h1 class="text-2xl font-bold mt-2 ml-5 mb-1">次の回答は</h1>
+        <h1 class="text-5xl font-bold ml-5"><%= (@last_answer.created_at + 1.days).to_s(:datetime_jp) %></h1>
+        <h1 class="text-2xl font-bold mt-2 ml-5">までお待ちください</h1>
+      <% end %>
+    </div>
+    </div>
+  </div>
+</div>
+<% end %>
