@@ -33,3 +33,7 @@ ja:
     create:
       success: ユーザー登録が完了しました
       failure: ユーザー登録に失敗しました
+  answers:
+    create:
+      success: 解答が完了しました
+      failure: 解答に失敗しました
