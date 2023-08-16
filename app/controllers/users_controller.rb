@@ -5,9 +5,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-
+    login(params[:email],params[:password])
     if @user.save
-      redirect_to questions_new_path, notice: t('users.create.success')   
+      redirect_to new_question_path, notice: t('users.create.success')   
     else
       flash.now[:warning] = t('users.create.failure')
       render :new,  status: :unprocessable_entity

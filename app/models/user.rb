@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates :name, presence: true, length: { maximum: 255 }
   validates :email, presence: true, uniqueness: true
 
-  has_many :questions
   has_many :answers
 
   def answered_questions
