@@ -1,4 +1,6 @@
 class AnswersController < ApplicationController
+  before_action :is_answered? only[:show]
+  
   def index
     @answers = current_user.answers.includes(:question)
   end
@@ -7,9 +9,7 @@ class AnswersController < ApplicationController
     @answer = Answer.find_by(id: params[:id])
   end
 
-  def new
-
-  end
+  def new;end
 
   def create
     @answer = Answer.new(answer_params)
@@ -26,5 +26,10 @@ class AnswersController < ApplicationController
 
   def answer_params
     params.require(:answer).permit(:content, :question_id)
+  end
+
+  def is_answered?
+    @answer = Answer.find_by(id: params[:id])
+    redirect_to answers_path unless  Answer.find_by(question_id: @answer.question.id, user_id: current_user.id)
   end
 end
