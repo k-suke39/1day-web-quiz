@@ -29,7 +29,7 @@ class AnswersController < ApplicationController
   end
 
   def is_answered?
-    @answer = Answer.find_by(id: params[:id])
-    redirect_to answers_path unless  Answer.find_by(question_id: @answer.question_id, user_id: current_user.id)
+    return redirect_to answers_path unless @answer = Answer.find_by(id: params[:id])
+    return redirect_to answers_path unless @answer && Answer.find_by(question_id: @answer.question_id, user_id: current_user.id)
   end
 end
