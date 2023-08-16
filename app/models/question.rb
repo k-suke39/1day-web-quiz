@@ -1,4 +1,8 @@
 class Question < ApplicationRecord
+    has_many :answers
+
+    #ユーザーが解答した質問だけ表示するようにする
+
     def self.display_question(id)
         # ログインユーザーのIDを取得
         last_answer = Answer.where(user_id: id).order(created_at: :desc).first # 最後に解答した問題を取得
