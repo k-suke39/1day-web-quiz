@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :is_answerd?, only: [:show]
+  before_action :is_answered?, only: [:show]
   def index
     @questions = Question.answered_question(current_user.id)
   end
@@ -19,8 +19,8 @@ class QuestionsController < ApplicationController
 
   private
 
-  def is_answerd?
-    answer = Answer.where(question_id: params[:id], user_id: current_user.id)
+  def is_answered?
+    answer = Answer.find_by(question_id: params[:id], user_id: current_user.id)
     redirect_to answers_path unless answer
   end
 end

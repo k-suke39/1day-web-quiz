@@ -30,7 +30,7 @@ class User < ApplicationRecord
   def passed_24_hours?
     last_answer = self.answers.order(created_at: :desc).first ? self.answers.order(created_at: :desc).first : Question.first
     #last_answer.created_at < 1.minute.ago
-    if last_answer && last_answer.created_at < 1.minute.ago
+    if last_answer && last_answer.created_at < 24.hours.ago
       return true
     else
       return false
