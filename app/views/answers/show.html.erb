@@ -5,12 +5,12 @@
       <h1 class="text-2xl font-bold mt-2 ml-5">とは何？</h1>
     </div>
     <div class="card flex-shrink-0 w-full max-w-md shadow-2xl bg-base-100">
-        <div class="card-body">
-          <div class="form-control">
+      <div class="card-body">
+        <div class="form-control">
             <%= @answer.user.name %>
-          </div>
-            <%= @answer.content %>
         </div>
+        <%= text_area_tag :answer_content, @answer.content, class: "form-control", rows: 4 %>
+      </div>
     </div>
     </div>
   </div>
