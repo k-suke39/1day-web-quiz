@@ -308,7 +308,7 @@ DEPENDENCIES
   rails (~> 7.0.7)
   rails-i18n
   selenium-webdriver
-  sorcery (= 0.16.3)
+  sorcery
   sprockets-rails
   sqlite3 (~> 1.4)
   stimulus-rails

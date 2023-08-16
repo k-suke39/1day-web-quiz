@@ -77,7 +77,7 @@ end
 
 
 # for login
-  gem 'sorcery', "0.16.3"
+  gem 'sorcery'
 
 # for lint
   gem "erb_lint"
