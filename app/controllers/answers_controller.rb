@@ -4,6 +4,7 @@ class AnswersController < ApplicationController
   end
 
   def show
+    @answer = Answer.where(id: params[:id])
   end
 
   def new
