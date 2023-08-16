@@ -11,11 +11,6 @@ class User < ApplicationRecord
 
   def last_answer
     last_answer = self.answers.order(created_at: :desc).first
-    if last_answer
-      Question.where('id > ?', last_answer.question_id).first
-    else
-      Question.first
-    end
   end
 
   def last_answered_question
@@ -28,12 +23,15 @@ class User < ApplicationRecord
   end
 
   def passed_24_hours?
-    last_answer = self.answers.order(created_at: :desc).first ? self.answers.order(created_at: :desc).first : Question.first
-    #last_answer.created_at < 1.minute.ago
-    if last_answer && last_answer.created_at < 24.hours.ago
+    #回答したかつ、24時間継続している場合
+    last_answer = self.answers.order(created_at: :desc).first
+    if last_answer && last_answer.created_at < 1.minute.ago
       return true
-    else
-      return false
     end
+    #初期登録時
+    if last_answer == nil
+      return true
+    end
+      return false
   end
 end

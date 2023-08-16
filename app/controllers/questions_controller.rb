@@ -14,7 +14,6 @@ class QuestionsController < ApplicationController
     @answer = Answer.new
     @last_answer = current_user.last_answer
     @passed_24_hours = current_user.passed_24_hours?
-    puts "@passed_24_hoursデバッグ中: #{@passed_24_hours}"
   end
 
   private
