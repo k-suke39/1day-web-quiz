@@ -84,3 +84,4 @@ end
 
 # for translate
   gem "rails-i18n"
+
