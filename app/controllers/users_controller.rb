@@ -4,9 +4,9 @@ class UsersController < ApplicationController
   end
 
   def create
+    login(params[:user][:email],params[:user][:password])
     @user = User.new(user_params)
     if @user.save
-      @user = login(params[:user][:email],params[:user][:password])
       redirect_to new_question_path, notice: t('users.create.success')   
     else
       flash.now[:warning] = t('users.create.failure')
