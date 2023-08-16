@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'questions/new'
 
   root "staticpages#top"
 
@@ -9,4 +8,6 @@ Rails.application.routes.draw do
   delete 'logout', to: 'user_sessions#destroy'
 
   resources :answers, only: [:index, :show, :new ,:create]
+  resources :questions, only: [:index, :show, :new ,:create]
+  
 end
